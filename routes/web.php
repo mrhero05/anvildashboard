@@ -1,15 +1,20 @@
 <?php
 
+use App\Livewire\Admin\Screener;
+use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\Entries\AllEntries;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Test;
 
-Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::redirect('/', 'login');
 
-Route::view('profile', 'profile')
+Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard',Dashboard::class)->name('dashboard');
+    Route::get('screener',Screener::class)->name('screener');
+    Route::get('all-entries',AllEntries::class)->name('all-entries');
+});
+
+Route::view('profile', 'livewire.admin.profile')
     ->middleware(['auth'])
     ->name('profile');
 

@@ -10,6 +10,13 @@ export default {
     ],
 
     theme: {
+        colors: {
+            'prsp-blue': '#282e8c',
+            'prsp-blu2': '#dde3e7',
+            'prsp-green': '#08c847',
+            'prsp-white': '#ffffff',
+            'prsp-red': '#d31d1d',
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
