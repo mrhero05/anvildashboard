@@ -61,11 +61,7 @@ class EntriesRepository
 
     public function getEntryData($data)
     {
-        $entryID = [];
-        foreach ($data as $key => $value) {
-            array_push($entryID, $value['entry_id']);
-        }
-        $additionalData = Entries::whereIn('entry_no', $entryID)->get();
+        $additionalData = Entries::where('entry_no', $data)->first();
         return $additionalData;
     }
 }
