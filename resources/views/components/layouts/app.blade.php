@@ -36,6 +36,7 @@
             </div>
             <!--end of project-->
         </main>
+        @include('sweetalert::alert')
         <script src="{{ asset('spiketheme/assets/libs/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('spiketheme/assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
         <script src="{{ asset('spiketheme/assets/libs/iconify-icon/dist/iconify-icon.min.js') }}"></script>

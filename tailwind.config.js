@@ -13,6 +13,7 @@ export default {
         colors: {
             'prsp-blue': '#282e8c',
             'prsp-blu2': '#dde3e7',
+            'prsp-blue3': '#2e328adb',
             'prsp-green': '#08c847',
             'prsp-white': '#ffffff',
             'prsp-red': '#d31d1d',

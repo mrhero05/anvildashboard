@@ -4,6 +4,7 @@ namespace App\Livewire\Admin;
 
 use Livewire\Component;
 use App\Services\ScreenerServices;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Screener extends Component
 {

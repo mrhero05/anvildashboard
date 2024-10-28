@@ -64,6 +64,17 @@ class EntriesServices
         return $allEntriesArray;
     }
 
+    public function fetchLatestEntries()
+    {
+        $data = $this->fetchAllEntries();
+        if($data != null){
+            $this->EntriesRepository->addEntries($data);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public function fields()
     {
         $fields = [

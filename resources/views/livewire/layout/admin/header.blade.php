@@ -1,6 +1,7 @@
 <?php
 use App\Livewire\Actions\Logout;
 use Livewire\Volt\Component;
+
 new class extends Component
 {
     /**
@@ -90,6 +91,7 @@ new class extends Component
             </li>
         </ul>
         <div class="flex items-center gap-4">
+            <a href="{{ route('api.fetchLatestEntries') }}" class="bg-prsp-blue hover:bg-prsp-blue3 border-2 border-prsp-blue text-prsp-white p-[10px] px-[20px] rounded-[20px] mr-[20px]" type="button">Fetch Latest Entry</a>
             <div
                 class="hs-dropdown relative inline-flex [--placement:bottom-right] sm:[--trigger:hover] group/profile">
                 <a class="relative hs-dropdown-toggle cursor-pointer align-middle rounded-full">
@@ -122,8 +124,6 @@ new class extends Component
                     </div>
                 </div>
             </div>
-
-
         </div>
     </nav>
     <!-- ========== END HEADER ========== -->
