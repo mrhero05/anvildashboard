@@ -2,9 +2,8 @@
 namespace App\Repositories;
 
 use App\Repositories\Api\ApiRepositories;
-use Illuminate\Support\Facades\Http;
 
-class ScreenerRepositories
+class JudgeRepositories
 {
     private $ApiRepositories;
 
@@ -13,8 +12,9 @@ class ScreenerRepositories
         $this->ApiRepositories = $apiRepositories;
     }
 
-    public function fetchScreenerVoteAPI()
+    public function fetchJudgeVoteAPI()
     {
-        return $this->ApiRepositories->fetchDataFromAPI('screener');
+        $data = $this->ApiRepositories->fetchDataFromAPI('judge');
+        return $data;
     }
 }

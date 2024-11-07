@@ -21,7 +21,7 @@ class EntriesServices
                 if (!isset($allEntriesArray[$entry])) {
                     $allEntriesArray[$entry] = [];
                 }
-                $formattedDate = Carbon::parse($value['date_created'])->format('F j, Y');
+                $formattedDate = Carbon::parse($value['date_created'])->format('F j, Y H:i:s');
                 array_push($allEntriesArray[$entry], $value['id']);
                 array_push($allEntriesArray[$entry], $formattedDate);
                 array_push($allEntriesArray[$entry], $item['name']);

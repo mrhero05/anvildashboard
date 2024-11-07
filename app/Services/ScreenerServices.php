@@ -15,9 +15,9 @@ class ScreenerServices
     public function screenerFetchVote()
     {
         $data = $this->ScreenerRepositories->fetchScreenerVoteAPI();
-        // dd($relatedEntryData);
         foreach ($data as $key => $value) {
             $relatedEntryData = $this->getEntryByID($data[$key]['entry_id']);
+            // dd($data[$key]['entry_id']);
             $data[$key]['category'] = $relatedEntryData->category;
             $data[$key]['subcategory'] = $relatedEntryData->subcategory;
             $data[$key]['entry_title'] = $relatedEntryData->entry_title;
