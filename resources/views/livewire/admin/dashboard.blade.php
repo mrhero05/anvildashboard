@@ -216,112 +216,46 @@
         <div class="col-span-2">
             <div class="card h-full">
                 <div class="card-body">
-                    <h4 class="text-gray-500 text-lg font-semibold mb-5">Top Paying Clients</h4>
+                    <h4 class="text-gray-500 text-lg font-semibold mb-5">Activity Log</h4>
                     <div class="relative overflow-x-auto">
                         <!-- table -->
                         <table class="text-left w-full whitespace-nowrap text-sm text-gray-500">
                             <thead>
                                 <tr class="text-sm">
-                                    <th scope="col" class="p-4 font-semibold">Profile</th>
-                                    <th scope="col" class="p-4 font-semibold">Hour Rate</th>
-                                    <th scope="col" class="p-4 font-semibold">Extra classes</th>
-                                    <th scope="col" class="p-4 font-semibold">Status</th>
+                                    <th scope="col" class="p-4 font-semibold">Name</th>
+                                    <th scope="col" class="p-4 font-semibold">Description</th>
+                                    <th scope="col" class="p-4 font-semibold">Timestamp</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="p-4 text-sm">
-                                        <div class="flex gap-6 items-center">
-                                            <div class="h-12 w-12 inline-block"><img
-                                                    src="{{ asset('spiketheme/assets/images/profile/user-1.jpg') }}" alt=""
-                                                    class="rounded-full w-100"></div>
-                                            <div class="flex flex-col gap-1 text-gray-500">
-                                                <h3 class=" font-bold">Mark J. Freeman</h3>
-                                                <span class="font-normal">Prof. English</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <h3 class="font-medium">$150/hour</h3>
-                                    </td>
-                                    <td class="p-4">
-                                        <h3 class="font-medium text-teal-500">+53</h3>
-                                    </td>
-                                    <td class="p-4">
-                                        <span
-                                            class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-teal-400 text-teal-500">Available</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-4 text-sm">
-                                        <div class="flex gap-6 items-center">
-                                            <div class="h-12 w-12 inline-block"><img
-                                                    src="{{ asset('spiketheme/assets/images/profile/user-2.jpg') }}" alt=""
-                                                    class="rounded-full w-100"></div>
-                                            <div class="flex flex-col gap-1 text-gray-500">
-                                                <h3 class=" font-bold">Nina R. Oldman</h3>
-                                                <span class="font-normal">Prof. History</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <h3 class="font-medium">$150/hour</h3>
-                                    </td>
-                                    <td class="p-4">
-                                        <h3 class="font-medium text-teal-500">+68</h3>
-                                    </td>
-                                    <td class="p-4">
-                                        <span
-                                            class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-blue-500 text-blue-600">In
-                                            Class</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-4 text-sm">
-                                        <div class="flex gap-6 items-center">
-                                            <div class="h-12 w-12 inline-block"><img
+                                @foreach ($activity_log as $data)
+                                    <tr>
+                                        <td class="p-4 text-sm">
+                                            <div class="flex gap-6 items-center">
+                                                <div class="h-12 w-12 inline-block"><img
                                                     src="{{ asset('spiketheme/assets/images/profile/user-3.jpg') }}" alt=""
                                                     class="rounded-full w-100"></div>
-                                            <div class="flex flex-col gap-1 text-gray-500">
-                                                <h3 class=" font-bold">Arya H. Shah</h3>
-                                                <span class="font-normal">Prof. Maths</span>
+                                                <div class="flex flex-col gap-1 text-gray-500">
+                                                    <h3 class=" font-bold">{{ $data['user_name'] }}</h3>
+                                                    <span class="font-normal">{{ $data['type'] }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <h3 class="font-medium">$150/hour</h3>
-                                    </td>
-                                    <td class="p-4">
-                                        <h3 class="font-medium text-teal-500">+94</h3>
-                                    </td>
-                                    <td class="p-4">
-                                        <span
-                                            class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-red-400 text-red-500">Absent</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-4 text-sm">
-                                        <div class="flex gap-6 items-center">
-                                            <div class="h-12 w-12 inline-block"><img
-                                                    src="{{ asset('spiketheme/assets/images/profile/user-4.jpg') }}" alt=""
-                                                    class="rounded-full w-100"></div>
-                                            <div class="flex flex-col gap-1 text-gray-500">
-                                                <h3 class=" font-bold">June R. Smith</h3>
-                                                <span class="font-normal">Prof. Arts</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <h3 class="font-medium">$150/hour</h3>
-                                    </td>
-                                    <td class="p-4">
-                                        <h3 class="font-medium text-teal-500">+27</h3>
-                                    </td>
-                                    <td class="p-4">
-                                        <span
-                                            class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-yellow-400 text-yellow-500">Absent</span>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        @if ($data['type'] == 'Screener')
+                                            <td class="p-4">
+                                                <h3 class="font-medium text-teal-500">{{ $data['description'] }}</h3>
+                                            </td>
+                                        @else
+                                            <td class="p-4">
+                                                <h3 class="font-medium text-yellow-500">{{ $data['description'] }}</h3>
+                                            </td>
+                                        @endif
+                                        <td class="p-4">
+                                            <span
+                                                class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-teal-400 text-teal-500">{{ $data['created_at'] }}</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
