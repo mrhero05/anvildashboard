@@ -228,34 +228,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($activity_log as $data)
-                                    <tr>
-                                        <td class="p-4 text-sm">
-                                            <div class="flex gap-6 items-center">
-                                                <div class="h-12 w-12 inline-block"><img
-                                                    src="{{ asset('spiketheme/assets/images/profile/user-3.jpg') }}" alt=""
-                                                    class="rounded-full w-100"></div>
-                                                <div class="flex flex-col gap-1 text-gray-500">
-                                                    <h3 class=" font-bold">{{ $data['user_name'] }}</h3>
-                                                    <span class="font-normal">{{ $data['type'] }}</span>
+                                @if ($activity_log)
+                                    @foreach ($activity_log as $data)
+                                        <tr>
+                                            <td class="p-4 text-sm">
+                                                <div class="flex gap-6 items-center">
+                                                    <div class="h-12 w-12 inline-block"><img
+                                                        src="{{ asset('spiketheme/assets/images/profile/user-3.jpg') }}" alt=""
+                                                        class="rounded-full w-100"></div>
+                                                    <div class="flex flex-col gap-1 text-gray-500">
+                                                        <h3 class=" font-bold">{{ $data['user_name'] }}</h3>
+                                                        <span class="font-normal">{{ $data['type'] }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        @if ($data['type'] == 'Screener')
-                                            <td class="p-4">
-                                                <h3 class="font-medium text-teal-500">{{ $data['description'] }}</h3>
                                             </td>
-                                        @else
+                                            @if ($data['type'] == 'Screener')
+                                                <td class="p-4">
+                                                    <h3 class="font-medium text-teal-500">{{ $data['description'] }}</h3>
+                                                </td>
+                                            @else
+                                                <td class="p-4">
+                                                    <h3 class="font-medium text-yellow-500">{{ $data['description'] }}</h3>
+                                                </td>
+                                            @endif
                                             <td class="p-4">
-                                                <h3 class="font-medium text-yellow-500">{{ $data['description'] }}</h3>
+                                                <span
+                                                    class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-teal-400 text-teal-500">{{ $data['created_at'] }}</span>
                                             </td>
-                                        @endif
-                                        <td class="p-4">
-                                            <span
-                                                class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-teal-400 text-teal-500">{{ $data['created_at'] }}</span>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>

@@ -15,14 +15,15 @@ class ScreenerServices
     public function screenerFetchVote()
     {
         $data = $this->ScreenerRepositories->fetchScreenerVoteAPI();
-        foreach ($data as $key => $value) {
-            $relatedEntryData = $this->getEntryByID($data[$key]['entry_id']);
-            // dd($data[$key]['entry_id']);
-            $data[$key]['category'] = $relatedEntryData->category;
-            $data[$key]['subcategory'] = $relatedEntryData->subcategory;
-            $data[$key]['entry_title'] = $relatedEntryData->entry_title;
-            $data[$key]['company_organization'] = $relatedEntryData->company_organization;
-            $data[$key]['agency'] = $relatedEntryData->agency;
+        if ($data) {
+            foreach ($data as $key => $value) {
+                $relatedEntryData = $this->getEntryByID($data[$key]['entry_id']);
+                $data[$key]['category'] = $relatedEntryData->category;
+                $data[$key]['subcategory'] = $relatedEntryData->subcategory;
+                $data[$key]['entry_title'] = $relatedEntryData->entry_title;
+                $data[$key]['company_organization'] = $relatedEntryData->company_organization;
+                $data[$key]['agency'] = $relatedEntryData->agency;
+            }
         }
         return $data;
     }

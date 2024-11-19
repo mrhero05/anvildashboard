@@ -15,14 +15,16 @@ class JudgeServices
     public function fetchJudgeVote()
     {
         $data = $this->JudgeRepositories->fetchJudgeVoteAPI();
-        foreach ($data as $key => $value) {
-            $relatedEntryData = $this->EntriesRepository->getEntryData($data[$key]['entry_id']);
-            $data[$key]['entry_title'] = $relatedEntryData->entry_title;
-            $data[$key]['company_organization'] = $relatedEntryData->company_organization;
-            $data[$key]['agency'] = $relatedEntryData->agency;
-            $data[$key]['mean_score'] = 0;
-            $data[$key]['final_score'] = 0;
-            $data[$key]['standard_deviation'] = 0;
+        if ($data) {
+            foreach ($data as $key => $value) {
+                $relatedEntryData = $this->EntriesRepository->getEntryData($data[$key]['entry_id']);
+                $data[$key]['entry_title'] = $relatedEntryData->entry_title;
+                $data[$key]['company_organization'] = $relatedEntryData->company_organization;
+                $data[$key]['agency'] = $relatedEntryData->agency;
+                $data[$key]['mean_score'] = 0;
+                $data[$key]['final_score'] = 0;
+                $data[$key]['standard_deviation'] = 0;
+            }
         }
         // dd($data);
         return $data;
