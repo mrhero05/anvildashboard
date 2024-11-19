@@ -19,7 +19,7 @@ class EntriesRepository
 
     public function getAllEntriesAPI()
     {
-        $api_endpoint = $this->api_url.'consumer_key='.$this->api_consumer_key.'&consumer_secret='.$this->api_consumer_secret;
+        $api_endpoint = $this->api_url.'consumer_key='.$this->api_consumer_key.'&consumer_secret='.$this->api_consumer_secret.'&per_page=100';
         $response = Http::get($api_endpoint);
         return $response->json();
     }

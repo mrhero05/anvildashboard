@@ -17,6 +17,7 @@ export default {
             'prsp-green': '#08c847',
             'prsp-white': '#ffffff',
             'prsp-red': '#d31d1d',
+            'prsp-yellow': '#eaff56',
         },
         extend: {
             fontFamily: {

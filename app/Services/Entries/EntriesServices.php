@@ -16,6 +16,7 @@ class EntriesServices
     {
         $allEntries = $this->EntriesRepository->getAllEntriesAPI();
         $allEntriesArray = [];
+        // dd($allEntries);
         foreach ($allEntries as $entry => $value){
             foreach ($value['line_items'] as $item){
                 if (!isset($allEntriesArray[$entry])) {
