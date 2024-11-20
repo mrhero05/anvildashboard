@@ -15,6 +15,7 @@ class ScreenerServices
     public function screenerFetchVote()
     {
         $data = $this->ScreenerRepositories->fetchScreenerVoteAPI();
+        // dd($data);
         if ($data) {
             foreach ($data as $key => $value) {
                 $relatedEntryData = $this->getEntryByID($data[$key]['entry_id']);
