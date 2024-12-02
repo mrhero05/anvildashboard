@@ -19,9 +19,16 @@ class EntriesRepository
 
     public function getAllEntriesAPI()
     {
-        $api_endpoint = $this->api_url.'consumer_key='.$this->api_consumer_key.'&consumer_secret='.$this->api_consumer_secret.'&per_page=100';
-        $response = Http::get($api_endpoint);
-        return $response->json();
+        $pages_endpoint = $api_endpoint = $this->api_url.'consumer_key='.$this->api_consumer_key.'&consumer_secret='.$this->api_consumer_secret.'&per_page=100';
+        $total_pages = (int)Http::get($pages_endpoint)->header('X-WP-TotalPages');
+
+        $response_array = [];
+        for ($page_number = 1; $page_number <= $total_pages; $page_number++) {
+            $api_endpoint = $this->api_url.'consumer_key='.$this->api_consumer_key.'&consumer_secret='.$this->api_consumer_secret.'&per_page=100&page='.$page_number;
+            $response = Http::get($api_endpoint)->json();
+            $response_array = [...$response_array, ...$response];
+        }
+        return $response_array;
     }
 
     public function addEntries($data)

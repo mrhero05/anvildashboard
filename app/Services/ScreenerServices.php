@@ -15,7 +15,6 @@ class ScreenerServices
     public function screenerFetchVote()
     {
         $data = $this->ScreenerRepositories->fetchScreenerVoteAPI();
-        // dd($data);
         if ($data) {
             foreach ($data as $key => $value) {
                 $relatedEntryData = $this->getEntryByID($data[$key]['entry_id']);
@@ -31,6 +30,6 @@ class ScreenerServices
 
     public function getEntryByID($data)
     {
-        return $additional_data = $this->EntriesRepository->getEntryData($data);
+        return $this->EntriesRepository->getEntryData($data);
     }
 }
