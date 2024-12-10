@@ -61,7 +61,6 @@ class EntriesServices
                 array_push($allEntriesArray[$entry], $proofOfPayment);
             }
         }
-        // dd($allEntriesArray);
         return $allEntriesArray;
     }
 

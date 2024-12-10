@@ -215,7 +215,7 @@
         </div>
         <div class="col-span-2">
             <div class="card h-full">
-                <div class="card-body">
+                <div class="card-body h-[500px] overflow-hidden overflow-y-scroll">
                     <h4 class="text-gray-500 text-lg font-semibold mb-5">Activity Log</h4>
                     <div class="relative overflow-x-auto">
                         <!-- table -->

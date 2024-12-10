@@ -71,4 +71,10 @@ class EntriesRepository
         $additionalData = Entries::where('entry_no', $data)->first();
         return $additionalData;
     }
+
+    public function getEntryNotScreen($dataID)
+    {
+        $additionalData = Entries::whereNotIn('entry_no', $dataID)->get();
+        return $additionalData;
+    }
 }
