@@ -77,4 +77,124 @@ class EntriesRepository
         $additionalData = Entries::whereNotIn('entry_no', $dataID)->get();
         return $additionalData;
     }
+
+    public function getEntryMaxCriteriaScore($category, $subcategory)
+    {
+        $pr_sustained_basis = [
+            'Marketing and Brand Communication',
+            'Arts & Culture/ Heritage/ Tourism',
+            'Financial Communications',
+            'Technology',
+            'Health & Wellness',
+            'Automotive and Transportation',
+            'E-Commerce and Retail',
+            'Business to Business Communication',
+            'Sustainability Communication',
+            'Corporate Social Responsibility/ Good Governance',
+            'Government Relations',
+            'Diversity and Inclusion',
+            'Non-Profit',
+            'Corporate Identity/ Corporate Branding Program',
+            'Training',
+            'Investor Relations'
+        ];
+        $pr_digital_program = [
+            'Best Use of Digital',
+            'Best Use of Social Media',
+            'Best Use of Influencer Marketing',
+            'Best Use of Partnerships',
+            'Best PR-Lead Integrated Campaign'
+        ];
+        $pr_crisis_communication = [
+            'Employee Engagement',
+            'Change Communication',
+            'Reputation and Issues Management',
+            'Public Affairs/ Policy-Shaping Communication',
+            'Cause-related / Public Awareness / Advocacy'
+        ];
+
+        $is_pr_sustained_basis = in_array($subcategory, $pr_sustained_basis);
+        $is_pr_digital_program = in_array($subcategory, $pr_digital_program);
+        $is_pr_crisis_communication = in_array($subcategory, $pr_crisis_communication);
+
+        switch ($category) {
+            case 'Public Relations Programs':
+                if($is_pr_sustained_basis){
+                    return [
+                        'criteria_1' => 20,
+                        'criteria_2' => 20,
+                        'criteria_3' => 20,
+                        'criteria_4' => 30,
+                        'criteria_5' => 5,
+                        'criteria_6' => 5,
+                    ];
+                }else if($is_pr_digital_program){
+                    return [
+                        'criteria_1' => 20,
+                        'criteria_2' => 20,
+                        'criteria_3' => 20,
+                        'criteria_4' => 30,
+                        'criteria_5' => 5,
+                        'criteria_6' => 5,
+                    ];
+                }else if($is_pr_crisis_communication){
+                    return [
+                        'criteria_1' => 15,
+                        'criteria_2' => 20,
+                        'criteria_3' => 25,
+                        'criteria_4' => 30,
+                        'criteria_5' => 5,
+                        'criteria_6' => 5,
+                    ];
+                }else{
+                    return [
+                        'criteria_1' => 20,
+                        'criteria_2' => 20,
+                        'criteria_3' => 20,
+                        'criteria_4' => 30,
+                        'criteria_5' => 5,
+                        'criteria_6' => 5,
+                    ];
+                }
+                break;
+            case 'Public Relations Tools (Publications)':
+                return [
+                    'criteria_1' => 30,
+                    'criteria_2' => 20,
+                    'criteria_3' => 10,
+                    'criteria_4' => 30,
+                    'criteria_5' => 5,
+                    'criteria_6' => 5,
+                ];
+                break;
+            case 'Public Relations Tools (Multimedia)':
+                return [
+                    'criteria_1' => 30,
+                    'criteria_2' => 25,
+                    'criteria_3' => 35,
+                    'criteria_4' => 5,
+                    'criteria_5' => 5,
+                ];
+                break;
+            case 'Public Relations Tools (Special Events)':
+                return [
+                    'criteria_1' => 30,
+                    'criteria_2' => 25,
+                    'criteria_3' => 35,
+                    'criteria_4' => 5,
+                    'criteria_5' => 5,
+                ];
+                break;
+            default:
+                return [
+                    'criteria_1' => 20,
+                    'criteria_2' => 20,
+                    'criteria_3' => 20,
+                    'criteria_4' => 30,
+                    'criteria_5' => 5,
+                    'criteria_6' => 5,
+                ];
+                break;
+        }
+    }
 }
