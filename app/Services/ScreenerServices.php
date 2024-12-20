@@ -42,7 +42,7 @@ class ScreenerServices
 
     public function getEntriesNotScreen($dataID)
     {
-        $valid_entry = $this->EntriesRepository->getEntryNotScreen($dataID);
+        $valid_entry = $this->EntriesRepository->getEntryOnProcessing($dataID);
         $data = [];
         foreach ($valid_entry as $key => $value) {
             $data[$key]['id'] = '';

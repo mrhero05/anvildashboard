@@ -72,7 +72,7 @@ class EntriesRepository
         return $additionalData;
     }
 
-    public function getEntryNotScreen($dataID)
+    public function getEntryOnProcessing($dataID)
     {
         $additionalData = Entries::whereNotIn('entry_no', $dataID)->get();
         return $additionalData;
